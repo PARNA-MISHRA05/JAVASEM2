@@ -16,7 +16,7 @@ public class Calculatorgui  extends JFrame implements ActionListener{
     public Calculatorgui()
     {
         jf=new JFrame("CALCULATOR BROO");
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(2,1));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 
@@ -37,7 +37,7 @@ public class Calculatorgui  extends JFrame implements ActionListener{
         eq=new JButton("=");
         cl=new JButton("C");
         t=new JTextField(20);
-        t.setSize(10, 10);
+        t.setSize(100, 50);
         b0.addActionListener(this);
         b1.addActionListener(this);
         b2.addActionListener(this);
@@ -55,7 +55,7 @@ public class Calculatorgui  extends JFrame implements ActionListener{
         eq.addActionListener(this);
         cl.addActionListener(this);
         p=new JPanel();
-        
+        p.setLayout(new GridLayout(4, 4));
         p.add(t);
         p.add(ba);
         p.add(b1);
@@ -74,9 +74,9 @@ public class Calculatorgui  extends JFrame implements ActionListener{
         p.add(cl);
         p.add(eq);
         p.setBackground(Color.gray);
-        add(p);
-        
-        setSize(500, 200);
+        add(t);// FIRST ADD TEXT PANEL
+        add(p);// THEN ADD CALC PANEL
+        setSize(500, 400);
         setVisible(true);
     
     }
