@@ -11,39 +11,41 @@ public class Formgui extends JFrame implements ActionListener {
 
     Formgui() {
         jf = new JFrame("LOGIN FORM");
-        jf.setSize(500, 200);
+        setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
         name = new JLabel("NAME :");
-        jf.add(name);
+        add(name);
 
         n = new JTextField(10);
        
-        jf.add(n);
+        add(n);
 
         pass = new JLabel("PASSWORD: ");
         
-        jf.add(pass);
+        add(pass);
 
         p = new JPasswordField(10);
         
-        jf.add(p);
+        add(p);
 
         details = new JLabel("DETAILS :");
         
-        jf.add(details);
+        add(details);
 
-        d = new JTextField();
+        d = new JTextField(30);
+        d.setSize(150,80);
         
-        jf.add(d);
+        
+        add(d);
 
         s = new JButton("SUBMIT");
         
-        jf.add(s);
+        add(s);
 
         r = new JButton("RESET");
         
-        jf.add(r);
+        add(r);
 
         s.addActionListener(this);
         r.addActionListener(this);
@@ -54,9 +56,11 @@ public class Formgui extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == s) {
             String s1 = "NAME :" + n.getText();
-            String s2 = "PASSWORD" + String.valueOf(p.getPassword());
-            d.setText(s1 + s2);
+            String s2 = "PASSWORD: " + String.valueOf(p.getPassword());
+            d.setText(s1 +"\n"+s2);
         } else if (e.getSource() == r) {
+            n.setText("");
+            p.setText("");
             d.setText("");
         }
     }
